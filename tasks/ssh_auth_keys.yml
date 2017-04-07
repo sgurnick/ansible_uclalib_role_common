@@ -1,0 +1,6 @@
+---
+- name: Install SSH Public Keys in users' authorized_key files
+  authorized_key:
+    user: "{{ item.user_name }}"
+    key: "{{ item.user_pubkey }}"
+  with_items: "{{ ssh_pubkey_info }}"

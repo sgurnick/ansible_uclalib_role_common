@@ -1,2 +1,4 @@
 ---
-- include: users.yml
+- include: accounts.yml
+
+- include: ssh_auth_keys.yml

@@ -1,0 +1,22 @@
+---
+- name: Create Admin Accounts
+  user:
+    name: "{{ item.user_name }}"
+    comment: "{{ item.user_comment }}"
+    state: "{{ item.user_state }}"
+    groups: "{{ item.user_groups|default(omit) }}"
+    shell: "{{ item.user_shell }}"
+    password: "{{ item.user_password }}"
+    createhome: "{{ item.user_createhome }}"
+  with_items: "{{ admin_account_info }}"
+
+- name: Create Service Accounts
+  user:
+    name: "{{ item.user_name }}"
+    comment: "{{ item.user_comment }}"
+    state: "{{ item.user_state }}"
+    groups: "{{ item.user_groups|default(omit) }}"
+    shell: "{{ item.user_shell }}"
+    password: "{{ item.user_password }}"
+    createhome: "{{ item.user_createhome }}"
+  with_items: "{{ service_account_info }}"
